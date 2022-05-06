@@ -44,9 +44,10 @@ module.exports = {
                 },
 
                 'input[type="radio"]:checked + label': {
-                    backgroundColor: theme('backgroundColor.gray-800'),
-                    textColor: theme('textColor.white')
-                }
+                    backgroundColor: theme('backgroundColor.gray.800'),
+                    color: theme('textColor.white')
+                },
+
 
                 //   input[type="radio"]:checked + label {
                 // @apply bg-gray-800 text-white

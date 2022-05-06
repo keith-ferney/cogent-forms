@@ -5,7 +5,7 @@
       <tbody>
       <tr class="h-10">
         <td colspan="6">
-          <stat-selector name="injury_level" :override-values="['1','2','3','4','5','6']"></stat-selector>
+          <stat-selector v-model="data.level" name="injury_level" :override-values="['1','2','3','4','5','6']"></stat-selector>
         </td>
       </tr>
       </tbody>
@@ -27,9 +27,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="h-10" v-for="i in 6">
-        <th></th>
-        <th></th>
+      <tr class="h-10 border-t-transparent border-b-transparent" v-for="i in 6" >
+        <th>
+          <text-input v-model="data.lingering['injury'+i].name" :name="'injury'+i" label="" />
+        </th>
+        <th>
+          <text-input v-model="data.lingering['injury'+i].penalty" :name="'injuryPenalty'+i" label="" />
+        </th>
       </tr>
       </tbody>
     </table>
@@ -37,9 +41,61 @@
 </template>
 <script>
 import StatSelector from "./StatSelector.vue";
+import TextInput from "./TextInput";
 
 export default {
   name: "injury-card",
-  components: { StatSelector }
+  components: {TextInput, StatSelector },
+  props: ["value"],
+  data() {
+    return {
+      data: {
+        level: '',
+        lingering: {
+          injury1: {
+            name: '',
+            penalty: ''
+          },
+          injury2: {
+            name: '',
+            penalty: ''
+          },
+          injury3: {
+            name: '',
+            penalty: ''
+          },
+          injury4: {
+            name: '',
+            penalty: ''
+          },
+          injury5: {
+            name: '',
+            penalty: ''
+          },
+          injury6: {
+            name: '',
+            penalty: ''
+          },
+        },
+      }
+    }
+  },
+  watch: {
+    data: {
+      handler(val, oldVal) {
+        this.output();
+      },
+      deep: true
+    },
+    value(val, oldVal) {
+      this.data = val;
+    }
+  },
+  methods: {
+    output() {
+      // pass back to the parent
+      this.$emit('input', this.data);
+    }
+  }
 };
 </script>

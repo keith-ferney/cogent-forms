@@ -1,11 +1,11 @@
 <template>
   <div class="flex grow">
-    <div v-for="value in values" class="grow">
-      <input :id="name+value" :value="value" class="sr-only" :name="name" type="radio">
-      <label :for="name+value" :class="labelClasses"
-             class="border border-black flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none">
-        <span class="font-extrabold text-gray-400" :class="textClass">
-          {{ value }}
+    <div v-for="val in values" class="grow">
+      <input :id="name+val" :value="val" class="sr-only" :name="name" type="radio" v-model="data" v-on:change="output">
+      <label :for="name+val" :class="labelClasses(val)"
+             class="border border-black flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none text-gray-400">
+        <span class="font-extrabold" :class="textClass">
+          {{ val }}
         </span>
       </label>
     </div>
@@ -14,30 +14,31 @@
 <script>
 export default {
   name: "stat-selector",
-  props: ["name", "size", "overrideValues"],
+  props: ["name", "size", "overrideValues", "value"],
+  data() {
+    return {
+      data: '' // store the data
+    };
+  },
+  methods: {
+    output() {
+      // pass back to the parent
+      this.$emit('input', this.data);
+    },
+      labelClasses(value) {
+      return {
+        "bg-gray-300": value === "-1",
+        "px-1": this.size === "xs" || this.size === "sm",
+        "py-1": !this.size,
+      };
+    },
+  },
   computed: {
     values() {
       if (this.overrideValues?.length > 0) {
         return this.overrideValues;
       }
       return ["-1", "+1", "+2", "+3", "+4"];
-    },
-    sizeClass() {
-    },
-    labelClasses(value) {
-      // 'bg-gray-300': value === '-1', paddingClass
-      let classes = [];
-      if (value === "-1") {
-        classes.push("bg-gray-300");
-      }
-      if (this.size === "xs") {
-        classes.push("px-1");
-      } else if (this.size === "sm") {
-        classes.push("px-1");
-      } else {
-        classes.push("py-1");
-      }
-      return classes.join(" ");
     },
     textClass() {
       if (this.size === "xs") {
@@ -47,6 +48,11 @@ export default {
         return "text-sm";
       }
       return "text-lg";
+    }
+  },
+  watch: {
+    value(val, oldVal) {
+      this.data = val;
     }
   }
 };
