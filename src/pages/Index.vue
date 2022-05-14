@@ -9,7 +9,7 @@
       </div>
       <div class="flex flex-col " v-for="(characterSheet, id) in characterSheets">
         <g-link class="rounded border my-3 py-2 px-4 text-white bg-gray-600 hover:bg-gray-700 text-center" :to="'/character-sheet/'+id">
-          Character {{ id }}: {{ characterSheet.character }} {{ characterSheet.player }}
+          <strong> Character: </strong> {{ characterSheet.character }} <strong>Player:</strong> {{ characterSheet.player }}
         </g-link>
       </div>
     </div>
