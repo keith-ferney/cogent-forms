@@ -34,6 +34,14 @@ export default {
 
       return Math.max(...keys) + 1;
     },
+    saveOldCharacterSheet() {
+      let cachedSheet = localStorage.getItem('characterSheet');
+      if (cachedSheet) {
+        this.characterSheets[0] = cachedSheet;
+        localStorage.setItem('characterSheets', JSON.stringify(this.characterSheets));
+        localStorage.removeItem('characterSheet');
+      }
+    },
   },
 
   mounted() {
@@ -43,8 +51,8 @@ export default {
     if (JSON.stringify(cachedSheets) !== '{}') {
       this.characterSheets = cachedSheets;
     }
-    this.newId();
 
+    this.saveOldCharacterSheet();
   },
 }
 </script>
