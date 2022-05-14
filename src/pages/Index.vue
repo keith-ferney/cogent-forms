@@ -31,8 +31,7 @@ export default {
       let keys = Object.keys(this.characterSheets).map(function (o) {
         return parseInt(o)
       });
-
-      return Math.max(...keys) + 1;
+      return keys ? Math.max(...keys) + 1 : 0;
     },
   },
 
