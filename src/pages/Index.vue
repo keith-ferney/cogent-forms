@@ -3,13 +3,13 @@
   <Layout>
   <form class="container mx-auto flex flex-col gap-3">
 
-    <div class="grid grid-cols-[1fr_auto_1fr] gap-10 justify-between mx-8">
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-10 md:justify-between justify-items-center justify-center mx-8">
       <div>
         <h4>Character Sheet:</h4>
         <text-input v-model="characterSheet.character" name="character" label="Character:" />
         <text-input v-model="characterSheet.player" name="Player" label="Player:" />
       </div>
-      <g-image class="h-24 w-24" src="~/logo.svg" />
+      <g-image class="h-24 w-24 md:order-none order-first" src="~/logo.svg" />
       <div>
         <div class="flex max-w-md">
           <text-input v-model="characterSheet.age" name="age" label="Age:" />

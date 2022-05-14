@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto pb-10">
+  <div class="container mx-auto pb-10 px-4 md:px-0">
     <header class="flex justify-between py-5 print:hidden">
       <strong>
         <g-link to="/">{{ $static.metadata.siteName }}</g-link>
