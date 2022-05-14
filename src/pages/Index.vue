@@ -1,16 +1,16 @@
 <script setup lang="ts"></script>
 <template>
   <Layout>
-  <form class="container mx-auto flex flex-col gap-3">
+  <form class="container mx-auto flex flex-col gap-7">
 
-    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-10 md:justify-between justify-items-center justify-center mx-8">
-      <div>
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-1 md:gap-10 md:justify-between justify-items-center justify-center md:mx-8">
+      <div class="w-full md:w-fit flex flex-col gap-1">
         <h4>Character Sheet:</h4>
         <text-input v-model="characterSheet.character" name="character" label="Character:" />
         <text-input v-model="characterSheet.player" name="Player" label="Player:" />
       </div>
       <g-image class="h-24 w-24 md:order-none order-first" src="~/logo.svg" />
-      <div>
+      <div class="flex flex-col gap-1">
         <div class="flex max-w-md">
           <text-input v-model="characterSheet.age" name="age" label="Age:" />
           <text-input v-model="characterSheet.race" name="race" label="Race:" />

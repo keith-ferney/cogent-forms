@@ -3,7 +3,7 @@
     <text-input :name="['[',name,']','name'].join()" :label="label" v-model="data.name" />
     <div class="flex justify-center gap-2 w-1/2 mx-auto">
       <stat-selector :size="size" :label="label" :name="['[',name,']','type'].join()"
-                     :override-values="['str','ref', 'int', 'cbt']" v-model="data.type"></stat-selector>
+                     :override-values="overrideValues" v-model="data.type"></stat-selector>
     </div>
     <skill-selector :no-padding="true" :size="size" :name="['[',name,']','attr'].join()" v-model="data.level" />
   </div>
@@ -15,8 +15,17 @@ import StatSelector from "./StatSelector.vue";
 
 export default {
   name: "vocation-attr-card",
-  props: ["name", "size", "label", "value"],
+  props: ["name", "size", "label", "value", "subSkill"],
   components: { SkillSelector, TextInput, StatSelector },
+  computed: {
+    overrideValues() {
+      let overrides = ['str','ref', 'int'];
+      if (this.subSkill === true) {
+        overrides.push('cbt')
+      }
+      return overrides
+    }
+  },
   data() {
     return {
       data: {
