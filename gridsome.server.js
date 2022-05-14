@@ -9,7 +9,13 @@ module.exports = function (api) {
     api.loadSource(({addCollection}) => {
         // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     })
-
+    api.afterBuild(({redirects}) => {
+        for (const rule of redirects) {
+            rule.from = '/character-sheets/:id';
+            rule.to = '/character-sheets/_id_d_plus.html';
+            rule.status = 200;
+        }
+    })
     api.createPages(({createPage}) => {
         createPage({
             path: '/character-sheet/:id(\\d+)',
