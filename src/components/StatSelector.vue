@@ -1,8 +1,7 @@
 <template>
   <div class="flex grow">
-    <input :id="name+'-1'" :value="-0" class="sr-only" :name="name" type="radio" v-model="data" v-on:change="output" hidden>
     <div v-for="val in values" class="grow">
-      <input :id="name+val" :value="val" class="sr-only" :name="name" type="radio" v-model="data" v-on:change="output" v-on:click="data = '-0'">
+      <input :id="name+val" :value="val" class="sr-only" :name="name" type="radio" v-model="data" v-on:change="output" v-on:click="$emit('input')">
       <label :for="name+val" :class="labelClasses(val)"
              class="border border-black flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none text-gray-400">
         <span class="font-extrabold" :class="textClass">

@@ -2787,7 +2787,7 @@
     "browserslist" "^4.20.3"
     "semver" "7.0.0"
 
-"core-js@^3.6.4", "core-js@^3.6.5":
+"core-js@^3.6.4", "core-js@^3.6.5", "core-js@^3.8.2":
   "integrity" "sha512-1uLykR+iOfYja+6Jn/57743gc9n73EWiOnSJJ4ba3B4fOEYDBv25MagmEZBxTp5cWq4b/KPx/l77zgsp28ju4w=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.22.4.tgz"
   "version" "3.22.4"
@@ -9606,6 +9606,13 @@
   "integrity" "sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw=="
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
+
+"vue-textarea-autogrow-directive@^0.2.0":
+  "integrity" "sha512-4Q1DFUlqCN8FYph76d76n6hqsDcDTOfL6eawoQRWM6AEGUbi7f46El88uPvIQ9GlaacEKM2Ii2d1zSIK9H0i3A=="
+  "resolved" "https://registry.npmjs.org/vue-textarea-autogrow-directive/-/vue-textarea-autogrow-directive-0.2.0.tgz"
+  "version" "0.2.0"
+  dependencies:
+    "core-js" "^3.8.2"
 
 "vue@^2 || ^3.0.0-0", "vue@^2.6.10", "vue@~2":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="

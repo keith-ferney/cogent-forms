@@ -6,6 +6,7 @@ import { config, library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import DefaultLayout from '~/layouts/Default.vue'
+import VueTextareaAutogrowDirective from 'vue-textarea-autogrow-directive'
 
 config.autoAddCss = false;
 library.add(faGithub, faTwitter)
@@ -14,4 +15,5 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('font-awesome', FontAwesomeIcon)
+  Vue.use(VueTextareaAutogrowDirective);
 }
