@@ -73,11 +73,11 @@
           <stat-selector name="commerce_points" :override-values="['0','1','2','3','4','5','6','7','8']" v-model="characterSheet.commercePoints"></stat-selector>
           <h4 class="font-bold text-lg text-center">Equipment and Inventory</h4>
         </div>
-        <textarea class="h-fit w-full md:h-auto grow resize-none" name="equipment_and_inventory" id="equipment_and_inventory" v-model="characterSheet.equipmentAndInventory"></textarea>
+        <textarea v-autogrow class="h-fit w-full md:h-auto grow resize-none" name="equipment_and_inventory" id="equipment_and_inventory" v-model="characterSheet.equipmentAndInventory"></textarea>
       </div>
       <div class="flex flex-col">
         <h4 class="font-bold text-lg text-center">Notes</h4>
-        <textarea class="w-full h-auto grow resize-none" name="notes" id="notes" v-model="characterSheet.notes"></textarea>
+        <textarea v-autogrow class="w-full h-auto grow resize-none" name="notes" id="notes" v-model="characterSheet.notes"></textarea>
       </div>
     </stat-section>
   </form>
