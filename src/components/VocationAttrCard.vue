@@ -5,7 +5,7 @@
       <stat-selector :size="size" :label="label" :name="['[',name,']','type'].join()"
                      :override-values="overrideValues" v-model="data.type"></stat-selector>
     </div>
-    <skill-selector :no-padding="true" :size="size" :name="['[',name,']','attr'].join()" v-model="data.level" />
+    <skill-selector :override-values="['+1', '+2', '+3', '+4']" :no-padding="true" :size="size" :name="['[',name,']','attr'].join()" v-model="data.level" />
   </div>
 </template>
 <script>
