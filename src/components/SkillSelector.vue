@@ -20,7 +20,7 @@ export default {
   props: ["name", "size", "label", "noPadding", "value", "overrideValues"],
   computed: {
     roll() {
-      return 4;
+      return (3 + parseInt(isNaN(this.value) ? this.value : 0));
     }
   },
   data() {
